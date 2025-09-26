@@ -1,0 +1,30 @@
+import type { Metadata } from "next";
+import { CCNEFormProvider } from "@/lib/context/ccneFormContext";
+import GuardedLayout from "@/components/clientside/GuardedLayout";
+import Progress from "@/components/clientside/Progress";
+import Breadcrumbs from "@/components/clientside/Breadcrumbs";
+
+export const metadata: Metadata = {
+  title: "CCNE Steps",
+};
+
+export default function CCNELayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <CCNEFormProvider>
+      <GuardedLayout>
+        <header style={{ padding: 16, borderBottom: "1px solid #eee" }}>
+          <h1 style={{ margin: 0, fontSize: 18 }}>CCNE Standard IV</h1>
+          <Progress />
+          <Breadcrumbs />
+        </header>
+        <main style={{ padding: 16 }}>{children}</main>
+      </GuardedLayout>
+    </CCNEFormProvider>
+  );
+}
+
+
