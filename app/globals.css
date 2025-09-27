@@ -1,13 +1,132 @@
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
+  /* Brand palette: white / blue / dark gray */
+  --color-bg: #ffffff;
+  --color-surface: #f8fafc; /* subtle cards */
+  --color-border: #e5e7eb;
+  --color-text: #111827; /* dark gray */
+  --color-text-muted: #6b7280;
+  --color-primary: #2563eb; /* blue 600 */
+  --color-primary-strong: #1d4ed8; /* blue 700 */
+  --color-primary-soft: #eef2ff; /* indigo-50 like */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 8px 24px rgba(3,7,18,0.06);
 }
 
 html, body {
   margin: 0;
   padding: 0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: var(--color-bg);
+  color: var(--color-text);
 }
 
 * { box-sizing: border-box; }
 
 
+/* Layout helpers */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: #ffffff;
+  color: var(--color-text);
+  box-shadow: var(--shadow-sm);
+  transition: background 120ms ease, color 120ms ease, border-color 120ms ease, box-shadow 120ms ease, transform 80ms ease;
+  cursor: pointer;
+}
+.btn:hover { background: var(--color-surface); }
+.btn:active { transform: translateY(1px); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.btn-primary {
+  border-color: transparent;
+  background: var(--color-primary);
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
+}
+.btn-primary:hover { background: var(--color-primary-strong); }
+
+/* Inputs */
+.field {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: #ffffff;
+  color: var(--color-text);
+}
+.field:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
+}
+.field-error {
+  margin-top: 4px;
+  color: #b91c1c;
+  font-size: 12px;
+}
+
+/* Steppers / Pills */
+.pill {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  border: 1px solid var(--color-border);
+}
+.pill-active { background: var(--color-primary); color: #fff; border-color: transparent; }
+.pill-enabled { background: var(--color-primary-soft); color: var(--color-primary); }
+.pill-complete { background: #dcfce7; color: #15803d; border-color: #bbf7d0; }
+.pill-disabled { background: #f3f4f6; color: #9ca3af; }
+
+.btn-text {
+  background: transparent;
+  color: var(--color-primary);
+  border: none;
+  padding: 0;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.btn-text:hover {
+  color: #1d4ed8;
+}
+.btn-text:disabled {
+  color: #9ca3af;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+.summary-grid {
+  margin: 0;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.summary-grid dt {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+  margin: 0 0 2px;
+}
+
+.summary-grid dd {
+  margin: 0;
+  font-size: 14px;
+  color: var(--color-text);
+}

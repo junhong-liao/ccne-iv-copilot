@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import FooterNav from "@/components/forms/navigation/FooterNav";
+import SubmissionPanel from "@/components/review/SubmissionPanel";
 
 export const metadata: Metadata = {
   title: "Submit",
@@ -6,11 +8,9 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div>
-      <h2>Submit</h2>
-      <p>Submission placeholder.</p>
+    <div style={{ display: "grid", gap: 32 }}>
+      <SubmissionPanel />
+      <FooterNav currentPath="/submit" />
     </div>
   );
 }
-
-

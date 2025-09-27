@@ -18,7 +18,12 @@ export default function CCNELayout({
     <CCNEFormProvider>
       <GuardedLayout>
         <header style={{ padding: 16, borderBottom: "1px solid #eee" }}>
-          <h1 style={{ margin: 0, fontSize: 18 }}>CCNE Standard IV</h1>
+          <h1 style={{ margin: 0, fontSize: 50, display: "flex", alignItems: "baseline", gap: 8 }}>
+            <span>
+              <span style={{ color: "#CDE7BE" }}>Accredit</span>
+              <span style={{ color: "#a78bfa" }}>It</span>
+            </span>
+          </h1>
           <Progress />
           <Breadcrumbs />
           <FormStepper />
@@ -28,5 +33,4 @@ export default function CCNELayout({
     </CCNEFormProvider>
   );
 }
-
 
